@@ -35,7 +35,7 @@ const LoginForm = () => {
           .then(res => {
             localStorage.setItem('token', res.data.payload);
             setIsLoading(false)
-            history.push('/home');
+            history.push('/friendsList');
             
           })
           .catch(e => {
@@ -48,11 +48,11 @@ const LoginForm = () => {
     return(
         <div className="container">
             <h2>Login</h2>
-            <div className="login-form">
+            <form className="login-form" onSubmit={handleSubmit}>
                 <input type="text" name="username" placeholder="Username" value={formData.username} onChange={handleChange}/>
                 <input type="text" name="password" placeholder="Password" value={formData.password} onChange={handleChange}/>
-                <button type="submit" onClick={handleSubmit}> Login</button>
-            </div>
+                <button type="submit"> Login</button>
+            </form>
             {error.data.errored ? (<div className="error">{error.data.error.toString()}</div>) : (console.log("hi"))}
             {isLoading ? <div> logging in... </div> : console.log("hi")}
         </div>
