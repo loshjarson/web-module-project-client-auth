@@ -1,27 +1,19 @@
-import axios from 'axios';
+import { axiosWithAuth } from "../axiosAuth";
 
-export const START_LOGIN = 'START_LOGIN';
-export const SUCCESFUL_LOGIN = 'SUCCESFUL_LOGIN';
-export const FAILED_LOGIN = 'FAILED_LOGIN';
-export const ADD_ERROR = 'ADD_ERROR';
+export const START_FETCH = 'START_FETCH';
+export const SUCCESFUL_FETCH = 'SUCCESFUL_FETCH';
+export const FAILED_FETCH = 'FAILED_FETCH';
 export const ADDING_FRIEND = 'ADDING_FRIEND';
+export const ADD_ERROR = 'ADD_ERROR';
 
-
-
-export const fetchSmurfs = () => dispatch => {
-    dispatch({type:START_LOGIN})
-    axios
-    .get('http://localhost:3333/smurfs')
-    .then(res =>
-      dispatch({ type: SUCCESFUL_LOGIN, payload: res.data })
-    )
-    .catch(err => dispatch({ type: FAILED_LOGIN, payload: err }));
+export const fetchFriends = () => dispatch => {
+    dispatch({type:START_FETCH})
+    axiosWithAuth().get('http://localhost:5000/api/friends')
+          .then(res => {
+            dispatch({ type: SUCCESFUL_FETCH, payload: res.data })
+          })
+          .catch(e => dispatch({ type: FAILED_FETCH, payload: e}))
 }
-
-
 export function addFriend(newFriend) {
     return {type:ADDING_FRIEND, payload: newFriend}
-}
-export function setError(error) {
-    return {type:ADD_ERROR, payload: error}
 }

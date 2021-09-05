@@ -17,8 +17,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Router>
+          <Switch>
             <Route exact path='/' component={LoginForm} />
             <PrivateRoute path='/friendsList' component={FriendsList}/>
+          </Switch>
         </Router>
       </header>
     </div>
