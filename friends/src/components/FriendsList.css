@@ -1,0 +1,52 @@
+.logout-button {
+    font-size: 2.5rem;
+    width: 20rem;
+    height: 5rem;
+    margin: 2rem auto;
+}
+
+.container {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.list-container{
+    margin: 0 5rem 5rem;
+    height: 80rem;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-flow: column wrap;
+    height: 100%;
+}
+
+li {
+    margin: 1rem auto;
+    border: 2px solid darkgray;
+    border-radius: 15px;
+    padding: 1rem;
+    width: 24rem;
+    line-height: 3rem;
+}
+
+.screen {
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container {
+    width: 30%;
+    margin: 2rem auto;
+}
+
+p {
+    border-bottom: 1px dashed ;
+}

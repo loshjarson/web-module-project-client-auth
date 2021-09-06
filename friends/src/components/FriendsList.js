@@ -1,6 +1,7 @@
-import React, { useEffect, useState, Component } from 'react';
+import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { fetchFriends, addFriend } from '../actions';
+import './FriendsList.css'
 
 class FriendsList extends Component {
     constructor(props) {
@@ -37,24 +38,24 @@ class FriendsList extends Component {
     
     render() {
     return(
-        <div>
+        <div className="screen">
             {!this.props.isLoading ? 
             <div className="container">
-                <button onClick={this.handleClick}>Logout</button>
+                <button onClick={this.handleClick} className="logout-button">Logout</button>
                 <div className="list-container">
                     <ul>
                         {this.props.friends.map(friend => {
                             return (
                                 <li key={friend.id}>
-                                <p>name: {friend.name}</p>
-                                <p>age: {friend.age}</p>
-                                <p>email: {friend.email}</p> 
+                                    <p>name: {friend.name}</p>
+                                    <p>age: {friend.age}</p>
+                                    <p>email: {friend.email}</p> 
                                 </li>
                             )
                         })}
                     </ul>
                 </div>
-                <div>
+                <div className="form-container">
                     <form className="new-friend-form" onSubmit={this.handleSubmit}>
                         <input type="text" placeholder="name" name="name" value={this.state.name} onChange={this.handleChange}/>
                         <input type="number" placeholder="age" name="age" value={this.state.age} onChange={this.handleChange}/>
