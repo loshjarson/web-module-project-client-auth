@@ -1,0 +1,33 @@
+.login-container {
+    width: 100%;
+    text-align: center;
+    
+    
+}
+
+.login-container h2 {
+    font-size: 4rem;
+}
+
+.login-form {
+    display: flex;
+    flex-flow: column wrap;
+    height: 25rem;
+    width: 70%;
+    justify-content: center;
+    margin: auto;
+}
+
+.login-container input {
+    margin: 3rem;
+    line-height: 5rem;
+    font-size: larger;
+    padding: 0 1rem 0 1rem;
+}
+
+.login-container button {
+    width: 10rem;
+    height: 4rem;
+    font-size: larger;
+    margin: auto;
+}
