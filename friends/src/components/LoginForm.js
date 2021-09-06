@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import axios from 'axios'
 import { useHistory } from "react-router-dom"
+import './LoginForm.css'
 
 const LoginForm = () => {
     const [formData, setFormData] = useState({
@@ -46,11 +47,11 @@ const LoginForm = () => {
       }
 
     return(
-        <div className="container">
-            <h2>Login</h2>
+        <div className="login-container">
+            <h2>Welcome to Friends</h2>
             <form className="login-form" onSubmit={handleSubmit}>
                 <input type="text" name="username" placeholder="Username" value={formData.username} onChange={handleChange}/>
-                <input type="text" name="password" placeholder="Password" value={formData.password} onChange={handleChange}/>
+                <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange}/>
                 <button type="submit"> Login</button>
             </form>
             {error.data.errored ? (<div className="error">{error.data.error.toString()}</div>) : (console.log("hi"))}
