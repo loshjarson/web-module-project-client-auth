@@ -14,6 +14,11 @@ export const fetchFriends = () => dispatch => {
           })
           .catch(e => dispatch({ type: FAILED_FETCH, payload: e}))
 }
-export function addFriend(newFriend) {
-    return {type:ADDING_FRIEND, payload: newFriend}
+export const addFriend = (newFriend) => dispatch => {
+    dispatch({type:START_FETCH})
+    axiosWithAuth().post('http://localhost:5000/api/friends', newFriend)
+          .then(res => {
+            dispatch({ type: SUCCESFUL_FETCH, payload: res.data })
+          })
+          .catch(e => dispatch({ type: FAILED_FETCH, payload: e}))
 }
